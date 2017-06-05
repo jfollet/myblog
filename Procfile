@@ -1,1 +1,1 @@
-web: bash ./run
+web: gunicorn myblog.wsgi --log-file -
