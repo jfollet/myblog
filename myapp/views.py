@@ -1,3 +1,4 @@
+from django.contrib.auth import logout
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import RequestContext, loader
@@ -35,7 +36,8 @@ def get_name(request):
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            return HttpResponseRedirect('thanks.html')
+            template = loader.get_template('thanks.html')
+            return HttpResponse(template.render(), content_type="text/html")
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -53,10 +55,18 @@ def get_contact(request):
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
+            template = loader.get_template('thanks.html')
+            return HttpResponse(template.render(), content_type="text/html")
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form = ContactForm()
 
     return render(request, 'contact.html', {'form': form})
+
+def logout_page(request):
+    """
+    Log users out and re-direct them to the main page.
+    """
+    logout(request)
+    return HttpResponseRedirect('/')

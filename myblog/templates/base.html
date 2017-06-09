@@ -11,9 +11,11 @@
 <div id="header">
     <ul id="control-bar">
         {% if user.is_authenticated %}
-        <li> {{ user.get_username }}</li>
+        <li> {{ user.get_username }} | </li>
+        <li><a href="/accounts/logout/">logout</a></li>
         {% else %}
-        <li><a href="{% url 'admin:login' %}">login</a></li>
+        <li><a href="{% url 'admin:login' %}">admin login | </a></li>
+        <li><a href="/accounts/login/">user login </a></li>
         {% endif %}
     </ul>
 </div>
@@ -23,5 +25,7 @@
         {% endblock content %}
     </div>
 </div>
+<p><a href="/your-name/">your name form</a></p>
+<p><a href="/your-contact/">your contact form</a></p>
 </body>
 </html>
