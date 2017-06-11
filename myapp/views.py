@@ -36,8 +36,10 @@ def get_name(request):
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
+            your_name = form.cleaned_data['your_name']
+            context = {'your_name': your_name}
             template = loader.get_template('thanks.html')
-            return HttpResponse(template.render(), content_type="text/html")
+            return HttpResponse(template.render(context), content_type="text/html")
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -48,13 +50,12 @@ def get_name(request):
 def get_contact(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
         form = ContactForm(request.POST)
-        # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            sender = form.cleaned_data['sender']
+            cc_myself = form.cleaned_data['cc_myself']
             template = loader.get_template('thanks.html')
             return HttpResponse(template.render(), content_type="text/html")
 

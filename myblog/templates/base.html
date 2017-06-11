@@ -9,11 +9,12 @@
 
 <div id="header">
     <ul id="control-bar">
+        <li><a href="/">home  | </a></li>
         {% if user.is_authenticated %}
         <li> {{ user.get_username }} | </li>
         <li><a href="/accounts/logout/">logout</a></li>
         {% else %}
-        <li><a href="{% url 'admin:login' %}">admin login | </a></li>
+        <li><a href="{% url 'admin:login' %}">admin  | </a></li>
         <li><a href="/accounts/login/">user login </a></li>
         {% endif %}
     </ul>
@@ -26,7 +27,7 @@
 </div>
 <hr>
 <div id="forms">
-    <h1>Links to WT Forms</h1>
+    <h1>Links to Django Forms</h1>
     <h3><a href="/your-name/">Your name form</a></h3>
     <h3><a href="/your-contact/">Your contact form</a></h3>
 </div>

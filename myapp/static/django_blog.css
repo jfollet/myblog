@@ -1,5 +1,5 @@
 body {
-    background-color: #eee;
+    background-color: #cfb095;
     color: #111;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     margin:0;
@@ -14,7 +14,7 @@ body {
     margin: 0em 1em 1em;
 }
 #header {
-    background-color: #333;
+    background-color: #0c69b2;
     border-botton: 1px solid #111;
     margin:0;
     padding:0;

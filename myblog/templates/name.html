@@ -1,11 +1,14 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>My Name</title>
 <form action="/your-name/" method="post">
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
     <input type="submit" value="Submit" />
 </form>
 </head>
@@ -13,3 +16,4 @@
 
 </body>
 </html>
+{% endblock %}
